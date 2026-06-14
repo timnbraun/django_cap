@@ -3,12 +3,14 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.common import no_append_slash
+from django.views.decorators.csrf import csrf_exempt
 
 from django_cap.cap_core.cap import Solution
 from django_cap.django_adapter import django_cap
 
 
 @no_append_slash
+@csrf_exempt
 @require_http_methods(["POST"])
 async def create_challenge(request):
     """
@@ -25,6 +27,7 @@ async def create_challenge(request):
 
 
 @no_append_slash
+@csrf_exempt
 @require_http_methods(["POST"])
 async def redeem_challenge(request):
     """
@@ -51,6 +54,7 @@ async def redeem_challenge(request):
 
 
 @no_append_slash
+@csrf_exempt
 @require_http_methods(["POST"])
 async def validate_token(request):
     """
