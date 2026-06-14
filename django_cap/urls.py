@@ -22,6 +22,6 @@ elif DRF_API_ENABLED:
 else:
     urlpatterns = [
         # Function-based views (matching cap.js endpoints)
-        path("v1/challenge/", views.create_challenge, name="cap_create_challenge"),
-        path("v1/redeem/", views.redeem_challenge, name="cap_redeem_challenge"),
+        path("v1/challenge", views.create_challenge, name="cap_create_challenge"),
+        path("v1/redeem", views.redeem_challenge, name="cap_redeem_challenge"),
     ]
