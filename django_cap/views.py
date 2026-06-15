@@ -1,4 +1,5 @@
 import json
+from dataclasses import asdict
 
 from django.http import JsonResponse
 from django.views.decorators.common import no_append_slash
@@ -47,7 +48,7 @@ async def redeem_challenge(request):
         )
 
         result = await django_cap.redeem_challenge(solution)
-        return JsonResponse(result)
+        return JsonResponse(asdict(result))
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
