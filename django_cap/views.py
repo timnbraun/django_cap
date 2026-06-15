@@ -47,7 +47,7 @@ async def redeem_challenge(request):
         )
 
         result = await django_cap.redeem_challenge(solution)
-        return JsonResponse(result.asdict())
+        return JsonResponse(result)
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
